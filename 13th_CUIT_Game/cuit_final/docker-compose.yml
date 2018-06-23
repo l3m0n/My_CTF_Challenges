@@ -1,0 +1,33 @@
+# Author: Syclover@l3m0n
+version: '2'
+services:
+  web:
+    build: .
+    environment:
+      - REDIS_HOST=redis
+      - MYSQL_ROOT_PASS=IamR00t
+      - MYSQL_DB_HOST=mysql
+      - MYSQL_DB_USER=syclover
+      - MYSQL_DB_PASS=3s6EzAHJt34AZepw
+      - MYSQL_DB_NAME=game
+    ports: 
+      - "80:80"
+    volumes:
+      - ./soure:/var/www/html
+    depends_on:
+      - redis
+      - mysql
+
+  mysql:
+    image: mysql
+    expose:
+      - "3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=IamR00t
+
+  redis:
+    build: ./redis
+    #image: l3m0n/redis
+    expose:
+     - "6379"
+

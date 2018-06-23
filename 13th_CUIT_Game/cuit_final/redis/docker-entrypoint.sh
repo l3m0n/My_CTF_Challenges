@@ -1,0 +1,2 @@
+crond -i
+redis-server

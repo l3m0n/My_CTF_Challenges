@@ -1,0 +1,4 @@
+<ifmodule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule s/(\w+)/?$ tools.php?a=c&s=$1 [L] 
+</ifmodule>
